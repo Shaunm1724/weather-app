@@ -33,19 +33,6 @@ class WeatherController extends Controller
             return $e->getMessage();
         }
 
-        // // make api request 
-        // $request_format = 'http://api.weatherapi.com/v1/current.json?key=' . $key . '&q=' . $request_prompt;
-        // $response = Http::post($request_format);
-
-        // // format the response
-        // $name = $response["location"]["name"];
-        // $temperature = $response["current"]["temp_c"];
-        // $condition_text = $request["current"]["condition"]["text"];
-        // $conditon_icon = $request["current"]["condition"]["icon"];
-
-
-
-
         // return the correct response 
         return view('weather', [
             'name' => $name,
