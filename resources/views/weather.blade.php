@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Weather</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4 sm:p-6 md:p-8">
+<x-layout>
     <div class="w-full max-w-md mx-auto bg-white shadow-lg rounded-xl p-4 sm:p-6 md:p-8 space-y-6">
         <h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-gray-800">
             City Weather Finder
@@ -51,5 +43,4 @@
             </div>
         @endif
     </div>
-</body>
-</html>
+</x-layout>
