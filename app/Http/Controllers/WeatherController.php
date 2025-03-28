@@ -9,29 +9,26 @@ class WeatherController extends Controller
 {
     public function index(Request $request) {
         $key = config('app.weather_key');
-        $name = "Mumbai";
-        $temperature = '26.4';
-        $condition_text = 'Mist';
-        $conditon_icon = '//cdn.weatherapi.com/weather/64x64/night/143.png';
+        $name = '';
+        $temperature = '';
+        $condition_text = '';
+        $conditon_icon = '';
 
         // input request from user 
         $request_prompt = $request->input('city', 'Mumbai');
-        $request_prompt = ($request_prompt == null)? 'Mumbai': $request_prompt;
 
-        try {
-            // make api request 
+        // make api request 
         $request_format = 'http://api.weatherapi.com/v1/current.json?key=' . $key . '&q=' . $request_prompt;
-            $response = Http::post($request_format);
+        $response = Http::post($request_format);
+        
+        // format the response 
+        if ($response->successful()) {
             $current = $response["current"];
-    
-            // format the response 
             $name = $response["location"]["name"];
-            $temperature = $response["current"]["temp_c"];
+            $temperature = $current["temp_c"];
             $condition_text = $current["condition"]["text"];
             $conditon_icon = $current["condition"]["icon"];
-        } catch(Exception $e) {
-            return $e->getMessage();
-        }
+        } 
 
         // return the correct response 
         return view('weather', [
