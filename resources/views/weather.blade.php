@@ -12,7 +12,7 @@
             City Weather Finder
         </h1>
 
-        <form action="/" method="get" class="space-y-4">
+        <form action="{{ route('weatherapp') }}" method="get" class="space-y-4">
             <div class="flex space-x-2">
                 <input 
                     type="text" 
