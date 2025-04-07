@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Http;
 
 class WeatherController extends Controller
 {
-    public function index(Request $request) {
+
+    public function callApi(Request $request) {
         $key = config('app.weather_key');
         $name = '';
         $temperature = '';
@@ -37,5 +38,9 @@ class WeatherController extends Controller
             'condition_text' => $condition_text,
             'condition_icon' => $conditon_icon
         ]);
+    }
+
+    public function index(Request $request) {
+        return view('weather');
     }
 }
