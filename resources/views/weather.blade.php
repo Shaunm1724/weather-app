@@ -4,8 +4,9 @@
             City Weather Finder
         </h1>
 
-        <form action="{{ route('weatherapp') }}" method="get" class="space-y-4">
+        <form action="{{ route('weatherappapi') }}" method="post" class="space-y-4">
             @csrf
+            @method('POST')
             <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                 <input 
                     type="text" 
